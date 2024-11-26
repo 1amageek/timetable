@@ -2,8 +2,6 @@
 
 A flexible and customizable React timetable component using Luxon for datetime handling.
 
-![Timetable Screenshot](screenshot.png)
-
 ## Features
 
 - 📅 Flexible timetable layout supporting multiple days
