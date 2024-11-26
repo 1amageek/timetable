@@ -77,7 +77,7 @@
       "email": "tmy0x3@icloud.com"
     }
   ],
-  "main": "lib/index.js",
+  "main": "lib/index.ts",
   "types": "lib/index.d.ts",
   "files": [
     "lib/*"
