@@ -1,50 +1,171 @@
-<<<<<<< HEAD
-# timetable
-=======
-# Getting Started with Create React App
+# Timetable
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A flexible and customizable React timetable component using Luxon for datetime handling.
 
-## Available Scripts
+![Timetable Screenshot](screenshot.png)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- 📅 Flexible timetable layout supporting multiple days
+- 🕒 Luxon-based datetime handling with timezone support
+- ✨ Event selection and multi-select support
+- 🎨 Customizable styling and themes
+- 📱 Responsive design
+- 💪 TypeScript support
+- 🔄 Context-based state management
+- 📚 Comprehensive documentation and Storybook
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+npm install @1amageek/timetable
+# or
+yarn add @1amageek/timetable
+# or
+pnpm add @1amageek/timetable
+```
 
-### `npm test`
+## Quick Start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```tsx
+import { DateTime } from "luxon";
+import { Timetable } from "react-luxon-timetable";
 
-### `npm run build`
+interface Event {
+  id: string;
+  start: DateTime;
+  end: DateTime;
+  title: string;
+  type: string;
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+function App() {
+  const events: Event[] = [
+    {
+      id: "1",
+      start: DateTime.local(2024, 3, 1, 12, 0),
+      end: DateTime.local(2024, 3, 1, 14, 0),
+      title: "Team Meeting",
+      type: "meeting"
+    }
+  ];
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  return (
+    <div className="h-screen">
+      <Timetable
+        start={DateTime.local(2024, 3, 1)}
+        end={DateTime.local(2024, 3, 7)}
+        items={events}
+        onChange={(selectedIds) => console.log("Selected:", selectedIds)}
+      >
+        {(item) => (
+          <div className="p-2 rounded-xl bg-blue-100 text-blue-800">
+            <div className="font-medium">{item.title}</div>
+            <div className="text-sm">
+              {item.start.toFormat("HH:mm")} - {item.end.toFormat("HH:mm")}
+            </div>
+          </div>
+        )}
+      </Timetable>
+    </div>
+  );
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Props
 
-### `npm run eject`
+### Timetable Props
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```typescript
+interface TimetableProps<T extends Identifiable & DateTimeRange> {
+  start: DateTime;              // Start date
+  end: DateTime;               // End date
+  items: T[];                  // Array of events
+  options?: TimetableOptions;  // Optional configuration
+  children: (item: T) => React.ReactNode;  // Render function for events
+  onChange?: (selectedIds: string[]) => void;  // Selection change handler
+}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+interface TimetableOptions {
+  cellHeight: number;     // Height of each time slot
+  headerHeight: number;   // Height of the header
+  paddingInsets: {       // Padding configuration
+    top: number;
+    left: number;
+    right: number;
+    bottom: number;
+  };
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Event Interface
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```typescript
+interface DateTimeRange {
+  start: DateTime;
+  end: DateTime;
+}
 
-## Learn More
+interface Identifiable {
+  id: string;
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+// Your event type should extend both interfaces
+interface Event extends Identifiable, DateTimeRange {
+  title: string;
+  // ... other properties
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
->>>>>>> 4f21df5 (first commit)
+## Advanced Usage
+
+### Custom Styling
+
+```tsx
+<Timetable>
+  {(item) => (
+    <div
+      className={`
+        p-2 rounded-xl 
+        ${item.type === "meeting" ? "bg-blue-100 text-blue-800" : ""}
+        ${item.type === "lunch" ? "bg-green-100 text-green-800" : ""}
+      `}
+    >
+      {item.title}
+    </div>
+  )}
+</Timetable>
+```
+
+## Development
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/1amageek/timetable.git
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Run Storybook
+npm run storybook
+```
+
+### Building
+
+```bash
+# Build the library
+npm run build
+
+# Build Storybook documentation
+npm run sb
+```
+
+
+## License
+
+MIT © [1amageek]
