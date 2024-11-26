@@ -1,7 +1,8 @@
 {
-  "name": "timeline",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@1amageek/timetable",
+  "version": "1.0.0",
+  "private": false,
+  "author": "1amageek",
   "dependencies": {
     "luxon": "^3.5.0",
     "react": "^18.3.1",
@@ -9,10 +10,9 @@
     "tailwind-variants": "^0.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "./node_modules/.bin/tsc -d",
+    "prepare": "npm run build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -65,5 +65,21 @@
     "tailwindcss": "^3.4.15",
     "typescript": "^4.9.5",
     "webpack": "^5.96.1"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Norikazu Muramoto",
+      "email": "tmy0x3@icloud.com"
+    }
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/*"
+  ],
+  "keywords": [
+    "timeline",
+    "timetable",
+    "calendar"
+  ]
 }
