@@ -1,14 +1,8 @@
 {
   "name": "@1amageek/timetable",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": false,
   "author": "1amageek",
-  "dependencies": {
-    "luxon": "^3.5.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwind-variants": "^0.3.0"
-  },
   "scripts": {
     "build": "tsup src --dts",
     "prepare": "npm run build",
@@ -37,22 +31,27 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "luxon": "^3.5.0",
+    "tailwind-variants": "^0.3.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "devDependencies": {
     "@babel/preset-typescript": "^7.26.0",
     "@chromatic-com/storybook": "^3.2.2",
-    "@storybook/addon-essentials": "^8.4.5",
-    "@storybook/addon-interactions": "^8.4.5",
-    "@storybook/addon-onboarding": "^8.4.5",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/blocks": "^8.4.5",
-    "@storybook/preset-create-react-app": "^8.4.5",
-    "@storybook/react": "^8.4.5",
-    "@storybook/react-webpack5": "^8.4.5",
-    "@storybook/test": "^8.4.5",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/preset-create-react-app": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-webpack5": "^8.4.7",
+    "@storybook/test": "^8.4.7",
     "@swc/core": "^1.9.3",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/luxon": "^3.4.2",
     "@types/node": "^16.18.119",
@@ -65,7 +64,7 @@
     "postcss": "^8.4.49",
     "prop-types": "^15.8.1",
     "react-scripts": "^5.0.1",
-    "storybook": "^8.4.5",
+    "storybook": "^8.4.7",
     "tailwindcss": "^3.4.15",
     "tsup": "^8.3.5",
     "typescript": "^4.9.5",
@@ -86,5 +85,6 @@
     "timeline",
     "timetable",
     "calendar"
-  ]
+  ],
+  "packageManager": "pnpm@9.15.1+sha256.9e534e70afef06374f6126b44bda5760947135ce16a30aef1010e965fb7e3e3e"
 }

@@ -1,4 +1,3 @@
-import React from "react"
 import { DateTime } from "luxon";
 import { useMemo } from "react";
 import { DateTimeRange, Identifiable } from "./timetable-types";

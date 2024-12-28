@@ -2,6 +2,7 @@ import type { StorybookConfig } from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
   stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|ts|tsx)"],
+
   addons: [
     "@storybook/addon-onboarding",
     "@storybook/addon-essentials",
@@ -16,11 +17,14 @@ const config: StorybookConfig = {
       },
     },
   ],
+
   framework: {
     name: "@storybook/react-webpack5",
     options: {},
   },
+
   staticDirs: ["../public"],
+
   webpackFinal: async (config) => {
     config.module?.rules?.push({
       test: /\.(ts|tsx)$/,
@@ -37,5 +41,11 @@ const config: StorybookConfig = {
     config.resolve?.extensions?.push(".ts", ".tsx");
     return config;
   },
+
+  docs: {},
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript"
+  }
 };
 export default config;

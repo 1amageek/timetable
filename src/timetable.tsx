@@ -1,4 +1,3 @@
-import React from "react"
 import { Timeline } from "./timeline";
 import { DateTimeRange, Identifiable, TimetableOptions, TimetableProps } from "./timetable-types";
 import { TimetableProvider } from "./timetable-context";
