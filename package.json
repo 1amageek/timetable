@@ -1,6 +1,6 @@
 {
   "name": "@1amageek/timetable",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": false,
   "author": "1amageek",
   "scripts": {
@@ -51,7 +51,7 @@
     "@storybook/react": "^8.6.14",
     "@storybook/react-webpack5": "^8.6.14",
     "@storybook/test": "^8.6.14",
-    "@swc/core": "^1.13.5", 
+    "@swc/core": "^1.13.5",
     "@types/jest": "^30.0.0",
     "@types/luxon": "^3.7.1",
     "@types/node": "^24.9.1",
